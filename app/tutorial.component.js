@@ -13,7 +13,8 @@ var TutorialComponent = /** @class */ (function () {
     TutorialComponent = __decorate([
         core_1.Component({
             selector: 'my-tutorial',
-            template: '<h2>tutorial component</h2>'
+            template: "<h4>tutorial component</h4>\n              \n\n    ",
+          
         })
     ], TutorialComponent);
     return TutorialComponent;
