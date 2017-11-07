@@ -9,11 +9,14 @@ Object.defineProperty(exports, "__esModule", { value: true });
 var core_1 = require("@angular/core");
 var TutorialComponent = /** @class */ (function () {
     function TutorialComponent() {
+        this.applyClass = true;
+        this.blueColor = false;
     }
     TutorialComponent = __decorate([
         core_1.Component({
             selector: 'my-tutorial',
-            template: "<h2>tutorial component</h2>"
+            template: "<h2>tutorial component</h2>\n    <h3 [class.redColor] = \"applyClass\">ApplyCLass</h3>\n    <h4 [style.color]=\"blueColor?'blue':'orange'\">Apply style</h4>\n    ",
+            styles: [".redColor{\n        color: red;\n    }"]
         })
     ], TutorialComponent);
     return TutorialComponent;
