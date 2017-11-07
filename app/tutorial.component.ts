@@ -3,12 +3,12 @@ import {Component} from '@angular/core';
 @Component({
     selector: 'my-tutorial',
     template: `
-    <button (click)="OnClick($event)">Click me</button>
-    <input type="text" #name />
+    <input type="text" [(ngModel)] = "fname" />
+    <input type="text" [(ngModel)] = "lname" />
+     <br>
+     Full name: {{ fname }} {{ lname }}
      `
 })
 export class TutorialComponent{
-   OnClick(value){
-       console.log(value);
-   }
+  
 }

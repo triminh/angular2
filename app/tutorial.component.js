@@ -10,13 +10,10 @@ var core_1 = require("@angular/core");
 var TutorialComponent = /** @class */ (function () {
     function TutorialComponent() {
     }
-    TutorialComponent.prototype.OnClick = function (value) {
-        console.log(value);
-    };
     TutorialComponent = __decorate([
         core_1.Component({
             selector: 'my-tutorial',
-            template: "\n    <button (click)=\"OnClick($event)\">Click me</button>\n    <input type=\"text\" #name />\n     "
+            template: "\n    <input type=\"text\" [(ngModel)] = \"fname\" />\n    <input type=\"text\" [(ngModel)] = \"lname\" />\n     <br>\n     Full name: {{ fname }} {{ lname }}\n     "
         })
     ], TutorialComponent);
     return TutorialComponent;
