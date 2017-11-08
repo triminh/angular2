@@ -9,11 +9,14 @@ Object.defineProperty(exports, "__esModule", { value: true });
 var core_1 = require("@angular/core");
 var TutorialComponent = /** @class */ (function () {
     function TutorialComponent() {
+        this.showLineIf = false;
+        this.color = "red";
+        this.colors = ["red", "green", "blue"];
     }
     TutorialComponent = __decorate([
         core_1.Component({
             selector: 'my-tutorial',
-            template: "\n    <input type=\"text\" [(ngModel)] = \"fname\" />\n    <input type=\"text\" [(ngModel)] = \"lname\" />\n     <br>\n     Full name: {{ fname }} {{ lname }}\n     "
+            template: "\n    <h3 *ngIf=\"showLineIf\">This ngIf directive line.</h3>\n    <div [ngSwitch]=\"color\">\n        <p *ngSwitchCase=\"'red'\">This line color is red</p>\n        <p *ngSwitchCase=\"'blue'\">This line color is blue</p>\n        <p *ngSwitchCase=\"'green'\">This line color is grreen</p>\n        <p *ngSwitchDefault>Invalid color</p>\n    </div>\n    <ul>\n        <li *ngFor=\"let color of colors\">{{ color }}</li>\n    </ul>\n\n\n     "
         })
     ], TutorialComponent);
     return TutorialComponent;
