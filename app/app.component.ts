@@ -1,31 +1,24 @@
-import { Component, ViewChild } from '@angular/core';
-import { TutorialComponent } from './tutorial.component';
+import { Component } from '@angular/core';
 
 @Component({
   selector: 'my-app',
   template: `
-  <h1>Hello {{ title }}!</h1>
-  <input type="text" #textName (keyup)="0" />
-  <p>Agree number: {{agree}} . Dissgree: {{ disagree }}</p>
-  <button (click)="changeName()">Change name</button>
-  <my-tutorial *ngFor="let person of names" [name]="person" (onVote)="parentVote($event)"><my-tutorial>
+  <h1>Hello {{ title | uppercase }}!</h1>
+  <p>Date today: {{ today | date:'shortDate' }}</p>
+  <p>2 power 10: {{ 2 | exponentialStrength:10 }}</p>
+  <p>Percent: {{ percentNumber | percent }}</p>
+  <p>e (3.1-5): {{ e | number }}</p>
+  <pre>{{ object | json }}</pre>
+
+  <ul>
+    <li *ngFor="let i of collection | slice:1:3">{{i}}</li>
+  </ul>
+  <my-tutorial><my-tutorial>
   `
 })
 export class AppComponent {
-   public title = "Tedu chanel";
-   public agree: number = 0;
-   public disagree: number = 0;
-   public names = ['Mr A', 'Mr B', 'Mr C', 'Mr D'];
-
-   @ViewChild(TutorialComponent)
-   private tutorialComponent: TutorialComponent;
-
-   parentVote(agree: boolean) {
-     if(agree) this.agree++;
-     else this.disagree++;
-   }
-
-   changeName() {
-     this.tutorialComponent.setName('Change name in Parent');
-   }
- }
+  public title = "Hello TEDU Chanel"
+  public percentNumber = 1.3495;
+  public today = Date.now();
+  public object: Object = {foo: 'bar', baz: 'quz', nested: {xyz: 3, numbers: [1, 2, 3, 4, 5]}}; 
+  public collection: string[] = ['a', 'b', 'c', 'd'];

@@ -7,16 +7,17 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 var core_1 = require("@angular/core");
-var TutorialComponent = /** @class */ (function () {
-    function TutorialComponent() {
+var ExponentialStrengthPipe = /** @class */ (function () {
+    function ExponentialStrengthPipe() {
     }
-    TutorialComponent = __decorate([
-        core_1.Component({
-            selector: 'my-tutorial',
-            template: "\n       \n    "
-        })
-    ], TutorialComponent);
-    return TutorialComponent;
+    ExponentialStrengthPipe.prototype.transform = function (value, exponent) {
+        var exp = parseFloat(exponent);
+        return Math.pow(value, isNaN(exp) ? 1 : exp);
+    };
+    ExponentialStrengthPipe = __decorate([
+        core_1.Pipe({ name: 'exponentialStrength' })
+    ], ExponentialStrengthPipe);
+    return ExponentialStrengthPipe;
 }());
-exports.TutorialComponent = TutorialComponent;
-//# sourceMappingURL=tutorial.component.js.map
+exports.ExponentialStrengthPipe = ExponentialStrengthPipe;
+//# sourceMappingURL=exponential-strength.pipe.js.map
