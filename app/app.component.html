@@ -3,7 +3,18 @@
 <form #userForm="ngForm" (ngSubmit)="onSubmit(userForm.value)">
     <div class="form-group">
         <label>Name</label>
-        <input type="text" class="form-control" name="name" ngModel/>
+        <input type="text" class="form-control" minlength="6" maxlength="10" required name="name" #name="ngModel" ngModel/>
+        <div *ngIf="name.errors && (name.dirty || name.touched)" class="label label-danger">
+           <div [hidden]="!name.errors.required">
+               Name is required
+           </div>
+           <div [hidden]="!name.errors.minlength">
+               Name is at least 6 characters
+           </div>
+           <div [hidden]="!name.errors.maxlength">
+               Name cannot more than 6 characters 
+           </div>
+        </div>
     </div>
     <div>
         <label>Email</label>
