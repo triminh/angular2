@@ -15,12 +15,15 @@ require("rxjs/add/operator/map");
 var EmployeeService = /** @class */ (function () {
     function EmployeeService(_http) {
         this._http = _http;
-        this.apiUrl = "http://5a1d71cb10a6590012095be6.mockapi.io/api/employees";
+        this.apiUrl = "http://5a1d71cb10a6590012095be6.mockapi.io/api/employees/";
     }
     EmployeeService.prototype.GetList = function () {
         return this._http.get(this.apiUrl).map(function (response) {
             return response.json();
         });
+    };
+    EmployeeService.prototype.GetSingle = function (id) {
+        return this._http.get(this.apiUrl + id).map(function (response) { return response.json(); });
     };
     EmployeeService = __decorate([
         core_1.Injectable(),

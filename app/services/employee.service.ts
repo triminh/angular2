@@ -5,7 +5,7 @@ import 'rxjs/add/operator/map';
 
 @Injectable()
 export class EmployeeService {
-    private apiUrl = "http://5a1d71cb10a6590012095be6.mockapi.io/api/employees";
+    private apiUrl = "http://5a1d71cb10a6590012095be6.mockapi.io/api/employees/";
 
     constructor(private _http: Http) {
 
@@ -13,7 +13,10 @@ export class EmployeeService {
     GetList(): Observable<any[]> {
         return this._http.get(this.apiUrl).map((response: Response) {
          return response.json();
-    });
+    });}
+
+    GetSingle(id: number): Observable<any> {
+        return this._http.get(this.apiUrl + id).map((response: Response) => response.json())
     }
 
 }

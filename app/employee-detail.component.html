@@ -1,0 +1,19 @@
+<table class="table" *ngIf="employee">
+    <tr>
+        <td>Id</td>
+        <td>{{ employee.id }}</td>
+    </tr>
+    <tr>
+        <td>Name</td>
+        <td>{{ employee.name }}</td>
+    </tr>
+    <tr>
+        <td>Image Url</td>
+        <td>{{ employee.imageUrl }}</td>
+    </tr>
+    <tr>
+        <td>Created at</td>
+        <td>{{ employee.createdAt }}</td>
+    </tr>
+</table>
+<a class="btn btn-default" [routerLink]="['/employees']">Go back</a>

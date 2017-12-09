@@ -13,6 +13,9 @@
             <td>{{ employee.name }}</td>
             <td>{{ employee.imageUrl }}</td>
             <td>{{ employee.createdAt | date }}</td>
+            <td>
+                <a [routerLink]="['/employee-detail', employee.id]">Show detail</a>
+            </td>
         </tr>
     </tbody>
 </table>
